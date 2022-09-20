@@ -1,0 +1,18 @@
+.btn-table-container {
+	position: relative;
+	width: 31px;
+	height: 31px;
+}
+
+.btn-table {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+
+#user > option { 
+	background-color: var(--bs-light);
+	color: black;
+}
