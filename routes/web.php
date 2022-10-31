@@ -5,6 +5,7 @@ use App\Http\Controllers\ChipController;
 use App\Http\Controllers\CarrierController;
 use App\Models\Chip;
 use App\Models\Carrier;
+use App\Models\Operator;
 
 use Illuminate\Http\Request;
 /*
@@ -19,8 +20,12 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-	$chips = Chip::all(); //fetch all products from DB
-  return view('layouts.main', ['chips' => $chips]);
+	$chips = Chip::all();
+	$carriers = Carrier::all();
+  return view('layouts.main', ['chips' => $chips, 'carriers' => $carriers]);
+  
+	//return view('layouts.main')->with('chips', $chips)->with('carriers', $carriers);
+
 });
 
 Route::resource('chip', ChipController::class);

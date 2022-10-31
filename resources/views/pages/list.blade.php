@@ -19,8 +19,8 @@
 					<th scope="row">{!! $chip->client !!}</th>
 					<td>{!! $chip->nim !!}</td>
 					<td>{!! $chip->sim !!}</td>
-					<td>{!! $chip->carrier !!}</td>
-					<td>{!! $chip->user !!}</td>
+					<td>{!! $chip->carrier->name !!}</td>
+					<td>{!! $chip->user_id !!}</td>
 					<td>{!! date_format($chip->created_at, 'H:i d/m/y') !!}</td>
 					<td>
 						<button type="button" class="btn btn-danger btn-sm btn-table-container" onClick='showModel({!! $chip->id !!})'>

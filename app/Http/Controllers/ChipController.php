@@ -14,10 +14,15 @@ class ChipController extends Controller
      */
     public function index()
     {
-			$chips = Chip::all(); //fetch all products from DB
+			#$chips = Chip::all(); //fetch all products from DB
+			$chips = Chip::with('carrier')->get();
+
+			
 			//$products = Product::where('title', 'Gorro')->first()->get();
 			//dump($products[0]);
 			return view('pages.list', ['chips' => $chips]);
+			
+			
     }
 
     /**
@@ -36,17 +41,15 @@ class ChipController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
 			$newChip = Chip::create([
 				'client' => $request->client,
 				'nim' => $request->nim,
 				'sim' => $request->sim,
-				'carrier' => $request->carrier,
+				'carrier_id' => $request->carrier,
 				'comment' => $request->comment,
-				'user' => $request->user
+				'user_id' => $request->user
 		]);
-		
     }
 
     /**

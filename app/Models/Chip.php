@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+//use App\Models\Carrier;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,8 +13,13 @@ class Chip extends Model
 			'client',
 			'nim',
 			'sim',
-			'carrier',
+			'carrier_id',
 			'comment',
-			'user',
+			'user_id',
 	];
+
+	public function carrier(){
+		return $this->belongsTo(Carrier::class);
+		#return $this->hasOne('App\Models\Carrier');
+	}
 }

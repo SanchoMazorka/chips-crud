@@ -13,18 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('chips', function (Blueprint $table) {
-						$table->id();
-						$table->integer('client');
-            $table->string('nim');
-            $table->string('sim');
-						$table->foreignId('carrier_id');
-            $table->string('comment')->nullable();
-            $table->foreignId('user_id');
+        Schema::create('operators', function (Blueprint $table) {
+            $table->id();
+						$table->string('name');
+						$table->integer('role');
+						$table->boolean('enabled')->default(true);
             $table->timestamps();
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('chips');
+        Schema::dropIfExists('operators');
     }
 };
